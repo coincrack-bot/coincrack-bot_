@@ -24,15 +24,14 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif data == "stats":
         await handle_stats(query, user_id)
 
+# ✅ Correct run_polling method for python-telegram-bot v20+
 async def main():
     await init_db()
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_handler))
-    await app.initialize()
-    await app.start()
-    await app.updater.start_polling()
-    await app.updater.idle()
+    await app.run_polling()
+
 
 if __name__ == "__main__":
     asyncio.run(main())
