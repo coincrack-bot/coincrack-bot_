@@ -1,1 +1,6 @@
-worker: python3 main.py
+coincrack-bot_/
+├── main.py
+├── bot_logic.py
+├── database.py
+├── requirements.txt ✅
+├── Procfile ✅
